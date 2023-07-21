@@ -29,7 +29,7 @@ void quick_sort_helper(int *array, size_t size, size_t originalSize)
 			array[lastNumIndex] = array[i];
 			array[i] = temp;
 			lastNumIndex = i;
-			print_array(array, sizeOfOrginal);
+			print_array(array, sizeOfOriginal);
 		}
 		else if (array[i] <=  array[lastNumIndex] && i > lastNumIndex)
 		{
@@ -38,6 +38,7 @@ void quick_sort_helper(int *array, size_t size, size_t originalSize)
 			array[i] = temp;
 			lastNumIndex = i;
 			i = low - 1;
+
 			print_array(array, sizeOfOriginal);
 		}
 	}
@@ -55,7 +56,7 @@ void quick_sort_helper(int *array, size_t size, size_t originalSize)
  * @array:to  be sorted
  * @size:size of the array
  */
-void quick_sort_helper(int *array, size_t size, size_t originalSize)
+void quick_sort(int *array, size_t size)
 {
 	 quick_sort_helper(array, size, size);
 }
