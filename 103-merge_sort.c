@@ -1,4 +1,4 @@
-nclude "sort.h"
+#include "sort.h"
 
 void mergesot(int *array, int *barry, int low, int mid, int upp);
 
