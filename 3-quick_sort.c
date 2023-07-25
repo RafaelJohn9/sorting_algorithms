@@ -1,14 +1,14 @@
 #include "sort.h"
 
-int *originalArray;
-size_t originalSize;
+static int *originalArray;
+static size_t originalSize;
 void print_it(void);
 
 /**
- * quick_sort_helper- sorts an array of integers in ascending order using the algorithm
+ * quick_sort_helper- sorts an array of integers in
+ *                    ascending order using the algorithm
  * @array:to  be sorted
  * @size:size of the array
- * @originalSize: original size of the array
  */
 void quick_sort_helper(int *array, size_t size)
 {
@@ -52,13 +52,17 @@ void quick_sort_helper(int *array, size_t size)
 	quick_sort_helper(right, sizeOfRight);
 }
 
+/**
+ * print_it- prints the array using the orginal array and original size
+ */
 void print_it(void)
 {
 	print_array(originalArray, originalSize);
 }
-	
+
 /**
- * quick_sort- sorts an array of integers in ascending order using the algorithm
+ * quick_sort- sorts an array of integers in ascending order
+ *             using the algorithm
  * @array:to  be sorted
  * @size:size of the array
  */
