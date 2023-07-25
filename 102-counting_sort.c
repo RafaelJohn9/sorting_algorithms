@@ -1,46 +1,53 @@
 #include "sort.h"
+/**
+ * get_k - get the maximum element in an array
+ * @array: the array
+ * @size: the size of the array
+ * Return: the maximum value
+ */
+
+int get_k(int *array, size_t size)
+{
+	int i, k = array[0];
+
+	for (i = 0; i < (int)size; i++)
+		if (array[i] > k)
+			k = array[i];
+	return (k);
+}
 
 /**
- * counting_sort - Sorts an array of integers in ascending order using Counting sort.
- *
- * @array: The array to be sorted.
- * @size: The size of the array.
+ * counting_sort - sort an array of positive integers using counting sort
+ * @array: the array to be sorted
+ * @size: the size of the array
  */
+
 void counting_sort(int *array, size_t size)
 {
-	int *counting_array; 
-	size_t index, i, max;
+	int *count, *barry, i, k;
 
 	if (array == NULL || size < 2)
 		return;
 
-	max = array[0];
-	for (i = 1; i < size; i++)
-	{
-		if ((size_t)array[i] > (size_t)max)
-			max = array[i];
-	}
-	counting_array = malloc((max + 1) * sizeof(int));
-	if (counting_array == NULL)
+	k = get_k(array, size);
+	count = malloc(sizeof(int) * k + 1);
+	if (!count)
 		return;
-	
-	for (i = 0; i <= max; i++)
-		counting_array[i] = 0;
-
-	for (i = 0; i < size; i++)
-		counting_array[array[i]]++;
-	
-	index = 0;
-	
-	for (i = 0; i <= max; i++)
+	barry = malloc(sizeof(int) * size);
+	if (!barry)
 	{
-		while (counting_array[i] > 0)
-		{
-			array[index] = i;
-			index++;
-			counting_array[i]--;
-		}
+		free(count);
+		return;
 	}
-	print_array(counting_array, max + 1);
-	free(counting_array);
+	for (i = 0; i < (int)size; i++)
+		++count[array[i]];
+	for (i = 1; i <= k; i++)
+		count[i] += count[i - 1];
+	print_array(count, k + 1);
+	for (i = size - 1; i >= 0; i--)
+		barry[--count[array[i]]] = array[i];
+	for (i = 0; i < (int)size; i++)
+		array[i] = barry[i];
+	free(count);
+	free(barry);
 }

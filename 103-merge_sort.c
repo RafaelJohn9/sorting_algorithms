@@ -13,15 +13,15 @@ void merge(int *array, size_t size, int *left, int *right)
 	size_t i = 0, j = 0, k = 0;
 	size_t left_size = size / 2;
 	size_t right_size = size - left_size;
-	
+
 	printf("Merging...\n[left]: ");
 	print_array(left, left_size);
 	printf("[right]: ");
 	print_array(right, right_size);
-	
+
 	while (i < left_size && j < right_size)
 	{
-		if (left[i] <= right[j]) 
+		if (left[i] <= right[j])
 		{
 			array[k] = left[i];
 			i++;
@@ -39,7 +39,7 @@ void merge(int *array, size_t size, int *left, int *right)
 		i++;
 		k++;
 	}
-	
+
 	while (j < right_size)
 	{
 		array[k] = right[j];
@@ -63,7 +63,7 @@ void merge_sort(int *array, size_t size)
 	size_t right_size = size - mid;
 	int *left = malloc(left_size * sizeof(int));
 	int *right = malloc(right_size * sizeof(int));
-	
+
 	if (size < 2)
 		return;
 	if (left == NULL || right == NULL)
@@ -74,14 +74,14 @@ void merge_sort(int *array, size_t size)
 	}
 	for (i = 0; i < mid; i++)
 		left[i] = array[i];
-	
+
 	for (i = mid; i < size; i++)
 		right[i - mid] = array[i];
-	
+
 	merge_sort(left, left_size);
 	merge_sort(right, right_size);
 	merge(array, size, left, right);
-	
+
 	free(left);
 	free(right);
 }
