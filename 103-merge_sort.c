@@ -1,87 +1,101 @@
-#include "sort.h"
+nclude "sort.h"
+
+void mergesot(int *array, int *barry, int low, int mid, int upp);
 
 /**
- * merge - Merges two sorted subarrays into a single sorted array.
- *
- * @array: The array to be sorted.
- * @size: The size of the array.
- * @left: Pointer to the left subarray.
- * @right: Pointer to the right subarray.
+ * recmerge - recursive merge
+ * @array: the array to sort
+ * @barry: the sorted sub array
+ * @low: the lower bound
+ * @upp: the upper bound
  */
-void merge(int *array, size_t size, int *left, int *right)
+
+void recmerge(int *array, int *barry, int low, int upp)
 {
-	size_t i = 0, j = 0, k = 0;
-	size_t left_size = size / 2;
-	size_t right_size = size - left_size;
+	int mid;
 
-	printf("Merging...\n[left]: ");
-	print_array(left, left_size);
-	printf("[right]: ");
-	print_array(right, right_size);
-
-	while (i < left_size && j < right_size)
+	if (low < upp)
 	{
-		if (left[i] <= right[j])
+		mid = (low + upp) / 2;
+		recmerge(array, barry, low, mid);
+		recmerge(array, barry, mid + 1, upp);
+		mergesot(array, barry, low, mid, upp);
+	}
+}
+
+/**
+ * mergesot - divide the array into subarrays
+ * @array: the array to sort
+ * @barry: the subarray
+ * @low: the lower bound
+ * @upp: the upper bound
+ * @mid: the halfway point
+ */
+
+void mergesot(int *array, int *barry, int low, int mid, int upp)
+{
+	int i = low, j = mid + 1, k = low;
+
+	while (i <= mid && j <= upp)
+	{
+		if (array[i] <= array[j])
 		{
-			array[k] = left[i];
+			barry[k] = array[i];
 			i++;
 		}
 		else
 		{
-			array[k] = right[j];
+			barry[k] = array[j];
 			j++;
 		}
 		k++;
 	}
-	while (i < left_size)
+	if (i > mid)
 	{
-		array[k] = left[i];
-		i++;
-		k++;
+		while (j <= upp)
+		{
+			barry[k] = array[j];
+			j++;
+			k++;
+		}
 	}
+	else
+	{
+		while (i <= mid)
+		{
+			barry[k] = array[i];
+			i++;
+			k++;
+		}
+	}
+	for (k = low; k <= upp; k++)
+		array[k] = barry[k];
 
-	while (j < right_size)
-	{
-		array[k] = right[j];
-		j++;
-		k++;
-	}
+	printf("Merging...\n[left]: ");
+	print_array(barry + low, mid - low);
+	printf("[right]: ");
+	print_array(barry + mid, upp - mid);
 	printf("[Done]: ");
-	print_array(array, size);
+	print_array(barry + low, upp - low);
 }
 
 /**
- * merge_sort - Sorts an array of integers in ascending order using Merge sort.
- *
- * @array: The array to be sorted.
- * @size: The size of the array.
+ * merge_sort - driver function to sort an array
+ * @array: the array to be sorted
+ * @size: the size of the array
  */
+
 void merge_sort(int *array, size_t size)
 {
-	size_t mid = size / 2;
-	size_t left_size = mid, i;
-	size_t right_size = size - mid;
-	int *left = malloc(left_size * sizeof(int));
-	int *right = malloc(right_size * sizeof(int));
+	int *barry;
 
-	if (size < 2)
+	if (array == NULL || size < 2)
 		return;
-	if (left == NULL || right == NULL)
-	{
-		free(left);
-		free(right);
+
+	barry = malloc(sizeof(int) * size);
+	if (!barry)
 		return;
-	}
-	for (i = 0; i < mid; i++)
-		left[i] = array[i];
+	recmerge(array, barry, 0, size);
 
-	for (i = mid; i < size; i++)
-		right[i - mid] = array[i];
-
-	merge_sort(left, left_size);
-	merge_sort(right, right_size);
-	merge(array, size, left, right);
-
-	free(left);
-	free(right);
+	free(barry);
 }
