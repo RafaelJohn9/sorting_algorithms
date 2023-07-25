@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <stdio.h>nmz
 #include "sort.h"
 
 /**
@@ -24,22 +24,25 @@ void swap(int *a, int *b)
 int lomuto_partition(int *array, int low, int high, size_t size)
 {
 	int pivot = array[high];
-	int i = low - 1;
+	int lastNumIndex = high;
 	int j;
 
 	for (j = low; j <= high - 1; j++)
 	{
-		if (array[j] < pivot)
+		if (array[j] > pivot && j < lastNumIndex)
 		{
-			i++;
-			swap(&array[i], &array[j]);
+			swap(&array[lastNumIndex], &array[j]);
+			lastNumIndex = j;
+			print_array(array, size);
+		}
+		else if (array[j] <= pivot && j > lastNumIndex)
+		{
+			swap(&array[lastNumIndex], &array[j]);
+			lastNumIndex = j;
 			print_array(array, size);
 		}
 	}
-	swap(&array[i + 1], &array[high]);
-	print_array(array, size);
-
-	return (i + 1);
+	return (lastNumIndex);
 }
 
 /**
