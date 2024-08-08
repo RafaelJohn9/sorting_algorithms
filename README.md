@@ -44,7 +44,7 @@ Sorting algorithms are fundamental to computer science, playing a crucial role i
 
 ### Questions for the Curious Minds
 
-For those who want to challenge themselves further, check out the **`QUESTIONS.md`** file. It contains thought-provoking problems and scenarios that will test your understanding of sorting algorithms and push your problem-solving skills to the next level.
+For those who want to challenge themselves further, check out the **`QUESTIONS.md`** file. It contains problems and scenarios that will test your understanding of sorting algorithms and push your problem-solving skills to the next level.
 
 ## Conclusion
 
