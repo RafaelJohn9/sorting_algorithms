@@ -1,7 +1,5 @@
 # Mastering Sorting Algorithms: Insights and Relevance
 
-## Project Structure
-
 ## Key Learnings
 
 ### 1. **Comprehending Core Sorting Algorithms**
