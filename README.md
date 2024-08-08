@@ -1,199 +1,53 @@
-0. Bubble sort
-mandatory
+# Mastering Sorting Algorithms: Insights and Relevance
 
+## Project Structure
 
+## Key Learnings
 
-Write a function that sorts an array of integers in ascending order using the Bubble sort algorithm
+### 1. **Comprehending Core Sorting Algorithms**
 
-Prototype: void bubble_sort(int *array, size_t size);
-You’re expected to print the array after each time you swap two elements (See example below)
-Write in the file 0-O, the big O notations of the time complexity of the Bubble sort algorithm, with 1 notation per line:
+- Implementing various sorting algorithms like Bubble Sort, Quick Sort, Merge Sort, and others provided a deep understanding of their inner workings. Each algorithm has its own use case and trade-offs in terms of time and space complexity.
+- **Key Concept:** Understanding the importance of choosing the right algorithm for the problem at hand.
 
-in the best case
-in the average case
-in the worst case
 
+### 2. **Analyzing Time and Space Complexity**
 
-1. Insertion sort
-mandatory
+- Through practical implementation, we learned how to evaluate the performance of sorting algorithms using Big O notation. This is crucial for understanding how an algorithm scales with input size.
+- **Key Concept:** The balance between time and space complexity, and how they affect algorithm performance.
 
+### 3. **Adaptive and Stable Sorts**
 
+- The project highlighted the concepts of adaptive sorting (algorithms that perform better when data is partially sorted) and stability (preserving the relative order of equal elements).
+- **Key Concept:** Stability and adaptiveness in sorting algorithms, important for specific use cases like sorting data with secondary keys.
 
-Write a function that sorts a doubly linked list of integers in ascending order using the Insertion sort algorithm
+### 4. **In-Place vs. Out-of-Place Sorting**
 
-Prototype: void insertion_sort_list(listint_t **list);
-You are not allowed to modify the integer n of a node. You have to swap the nodes themselves.
-You’re expected to print the list after each time you swap two elements (See example below)
-Write in the file 1-O, the big O notations of the time complexity of the Insertion sort algorithm, with 1 notation per line:
+- Implementing algorithms like Quick Sort and Merge Sort underscored the differences between in-place sorting (modifying the input data structure) and out-of-place sorting (requiring additional memory).
+- **Key Concept:** The trade-off between memory usage and speed, influencing the choice of sorting algorithm based on system constraints.
 
-in the best case
-in the average case
-in the worst case
+### 5. **Recursive vs. Iterative Approaches**
 
+- The project involved both recursive (e.g., Quick Sort, Merge Sort) and iterative (e.g., Insertion Sort, Bubble Sort) algorithms. Understanding when and how to use recursion effectively is vital for algorithm design.
+- **Key Concept:** Recursion’s power and pitfalls, particularly in managing stack space and avoiding overflow.
 
-2. Selection sort
-mandatory
+### 6. **Handling Edge Cases**
 
+- Implementing sorting algorithms required careful consideration of edge cases, such as handling empty arrays, arrays with one element, and arrays with duplicate values.
+- **Key Concept:** Robust handling of edge cases to ensure algorithm reliability.
 
+### 7. **Practical Applications of Sorting**
 
-Write a function that sorts an array of integers in ascending order using the Selection sort algorithm
+- Beyond theoretical knowledge, sorting algorithms have practical applications in real-world scenarios, such as organizing data in databases, optimizing search algorithms, and more.
+- **Key Concept:** The relevance of sorting in software development and data processing.
 
-Prototype: void selection_sort(int *array, size_t size);
-You’re expected to print the array after each time you swap two elements (See example below)
-Write in the file 2-O, the big O notations of the time complexity of the Selection sort algorithm, with 1 notation per line:
+## Relevance of Sorting Algorithms
 
-in the best case
-in the average case
-in the worst case
+Sorting algorithms are fundamental to computer science, playing a crucial role in data organization, retrieval, and efficiency. Whether you’re working on small-scale applications or large systems, understanding and implementing the right sorting algorithm can dramatically impact performance.
 
+### Questions for the Curious Minds
 
+For those who want to challenge themselves further, check out the **`QUESTIONS.md`** file. It contains thought-provoking problems and scenarios that will test your understanding of sorting algorithms and push your problem-solving skills to the next level.
 
+## Conclusion
 
-3. Quick sort
-mandatory
-
-
-
-Write a function that sorts an array of integers in ascending order using the Quick sort algorithm
-
-Prototype: void quick_sort(int *array, size_t size);
-You must implement the Lomuto partition scheme.
-The pivot should always be the last element of the partition being sorted.
-You’re expected to print the array after each time you swap two elements (See example below)
-Write in the file 3-O, the big O notations of the time complexity of the Quick sort algorithm, with 1 notation per line:
-
-in the best case
-in the average case
-in the worst case
-
-
-
-
-4. Shell sort - Knuth Sequence
-#advanced
-Write a function that sorts an array of integers in ascending order using the Shell sort algorithm, using the Knuth sequence
-
-Prototype: void shell_sort(int *array, size_t size);
-You must use the following sequence of intervals (a.k.a the Knuth sequence):
-n+1 = n * 3 + 1
-1, 4, 13, 40, 121, ...
-You’re expected to print the array each time you decrease the interval (See example below).
-No big O notations of the time complexity of the Shell sort (Knuth sequence) algorithm needed - as the complexity is dependent on the size of array and gap
-
-
-
-5. Cocktail shaker sort
-#advanced
-Write a function that sorts a doubly linked list of integers in ascending order using the Cocktail shaker sort algorithm
-
-Prototype: void cocktail_sort_list(listint_t **list);
-You are not allowed to modify the integer n of a node. You have to swap the nodes themselves.
-You’re expected to print the list after each time you swap two elements (See example below)
-Write in the file 101-O, the big O notations of the time complexity of the Cocktail shaker sort algorithm, with 1 notation per line:
-
-in the best case
-in the average case
-in the worst case
-
-
-
-6. Counting sort
-#advanced
-Write a function that sorts an array of integers in ascending order using the Counting sort algorithm
-
-Prototype: void counting_sort(int *array, size_t size);
-You can assume that array will contain only numbers >= 0
-You are allowed to use malloc and free for this task
-You’re expected to print your counting array once it is set up (See example below)
-This array is of size k + 1 where k is the largest number in array
-Write in the file 102-O, the big O notations of the time complexity of the Counting sort algorithm, with 1 notation per line:
-
-in the best case
-in the average case
-in the worst case
-
-
-7. Merge sort
-#advanced
-Write a function that sorts an array of integers in ascending order using the Merge sort algorithm
-
-Prototype: void merge_sort(int *array, size_t size);
-You must implement the top-down merge sort algorithm
-When you divide an array into two sub-arrays, the size of the left array should always be <= the size of the right array. i.e. {1, 2, 3, 4, 5} -> {1, 2}, {3, 4, 5}
-Sort the left array before the right array
-You are allowed to use printf
-You are allowed to use malloc and free only once (only one call)
-Output: see example
-Write in the file 103-O, the big O notations of the time complexity of the Merge sort algorithm, with 1 notation per line:
-
-in the best case
-in the average case
-in the worst case
-
-
-8. Heap sort
-#advanced
-Write a function that sorts an array of integers in ascending order using the Heap sort algorithm
-
-Prototype: void heap_sort(int *array, size_t size);
-You must implement the sift-down heap sort algorithm
-You’re expected to print the array after each time you swap two elements (See example below)
-Write in the file 104-O, the big O notations of the time complexity of the Heap sort algorithm, with 1 notation per line:
-
-in the best case
-in the average case
-in the worst case
-
-
-9. Radix sort
-#advanced
-Write a function that sorts an array of integers in ascending order using the Radix sort algorithm
-
-Prototype: void radix_sort(int *array, size_t size);
-You must implement the LSD radix sort algorithm
-You can assume that array will contain only numbers >= 0
-You are allowed to use malloc and free for this task
-You’re expected to print the array each time you increase your significant digit (See example below)
-
-
-10. Bitonic sort
-#advanced
-Write a function that sorts an array of integers in ascending order using the Bitonic sort algorithm
-
-Prototype: void bitonic_sort(int *array, size_t size);
-You can assume that size will be equal to 2^k, where k >= 0 (when array is not NULL …)
-You are allowed to use printf
-You’re expected to print the array each time you swap two elements (See example below)
-Output: see example
-Write in the file 106-O, the big O notations of the time complexity of the Bitonic sort algorithm, with 1 notation per line:
-
-in the best case
-in the average case
-in the worst case
-
-
-11. Quick Sort - Hoare Partition scheme
-#advanced
-Write a function that sorts an array of integers in ascending order using the Quick sort algorithm
-
-Prototype: void quick_sort_hoare(int *array, size_t size);
-You must implement the Hoare partition scheme.
-The pivot should always be the last element of the partition being sorted.
-You’re expected to print the array after each time you swap two elements (See example below)
-Write in the file 107-O, the big O notations of the time complexity of the Quick sort algorithm, with 1 notation per line:
-
-in the best case
-in the average case
-in the worst case
-
-
-12. Dealer
-#advanced
-
-
-
-Write a function that sorts a deck of cards.
-
-Prototype: void sort_deck(deck_node_t **deck);
-You are allowed to use the C standard library function qsort
-Please use the following data structures:
+Learning and implementing various sorting algorithms has been a rewarding experience. The insights gained extend far beyond the classroom, providing essential tools for efficient programming and algorithm design. Whether it’s optimizing data structures or improving application performance, the knowledge of sorting algorithms is indispensable.
